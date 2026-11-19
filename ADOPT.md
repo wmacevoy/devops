@@ -10,8 +10,8 @@ applying it is not**, because whatever the description leaves out, the apply may
 before anything is changed.
 
 **Not yet tried.** Written 2026-11-19 by Claude Fable 5.2 with Warren MacEvoy, in the session that
-drafted the guide. Nobody has followed it. The vendoring commands in step 2 were not run against a
-real project. Wrong if a repository that followed it still has a deploy only one person can do, or
+drafted the guide. Nobody has followed it. Step 2's commands ran once, that day, in an empty
+repository, where `./se --doctor` then reported 0 failed; they have met no real project. Wrong if a repository that followed it still has a deploy only one person can do, or
 spends more on this file than it catches.
 
 ## For the owner, new system or old
