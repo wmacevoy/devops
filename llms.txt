@@ -1,0 +1,47 @@
+# DevOps
+
+> A guide to delivering change to a running system and keeping it running, organized as numbered
+> principles with versioned IDs (DO1/F6, DO1/D6, DO1/O13, ...) that people and agents cite. A
+> companion to the Software Engineering guide (SE1): each principle either reframes an SE1 principle
+> for operations, and links to it, or is new. The Markdown files linked below are the canonical
+> source. A first draft, unreleased and untried: see GAPS.md.
+
+Agents doing operational work in a repository that follows this guide: read AGENTS.md here and SE1's
+AGENTS.md, which it extends, then the chapter that bears on the task. Principle anchors are the
+lowercase ID without the version, e.g. DO1/F6 is guide/03-feedback.md#f6.
+
+## Start here
+
+- [AGENTS.md](https://raw.githubusercontent.com/wmacevoy/devops/main/AGENTS.md): the working agreement for agents doing operational work
+- [SE1 AGENTS.md](https://raw.githubusercontent.com/wmacevoy/software-engineering/v1.7/AGENTS.md): the working agreement it extends
+- [README.md](https://raw.githubusercontent.com/wmacevoy/devops/main/README.md): the argument in ten lines, the running example, the principle index, and the map from SE1
+- [ADOPT.md](https://raw.githubusercontent.com/wmacevoy/devops/main/ADOPT.md): how to adopt the guide on a new system or a running one, and what an agent does where adoption is partial
+- [CHANGELOG.md](https://raw.githubusercontent.com/wmacevoy/devops/main/CHANGELOG.md): what changed in each release, by principle ID
+
+## Chapters, in reading order
+
+- [1. Purpose](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/01-purpose.md): what operations is for, and who pays when it fails
+- [2. Unknowing](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/02-unknowing.md): why production says "fine" by default: silence, drift, and expiry
+- [3. Feedback](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/03-feedback.md): what a test in production costs, and how the size of a change sets the price
+- [4. Requirements](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/04-requirements.md): availability, recovery, dependencies, cost, and what is not operated
+- [5. Design](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/05-design.md): infrastructure as state and caches; the repository as authority; one artifact, many environments
+- [6. Testing](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/06-testing.md): doctors and preflights, restores seen to work, injected failure, the cold start
+- [7. Operating](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/07-operating.md): pins, pipelines, alerts, deploys and releases, secrets, identities, incidents, capacity, backups
+- [8. Work](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/08-work.md): the loop past deploy, the empty system first, done, toil, adopting on a running system
+- [9. People](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/09-people.md): who is paged, who is told, blame, drills, and the laptop
+- [10. Agents](https://raw.githubusercontent.com/wmacevoy/devops/main/guide/10-agents.md): a fast operator with your credentials and no pager
+
+## Reference
+
+- [CHECKLISTS.md](https://raw.githubusercontent.com/wmacevoy/devops/main/CHECKLISTS.md): every checklist, in the order the work meets them
+- [GLOSSARY.md](https://raw.githubusercontent.com/wmacevoy/devops/main/GLOSSARY.md): the terms used precisely
+- [READING.md](https://raw.githubusercontent.com/wmacevoy/devops/main/READING.md): the longer arguments, one line each, none yet checked against its source
+- [GAPS.md](https://raw.githubusercontent.com/wmacevoy/devops/main/GAPS.md): where the guide is known to be thin
+
+## Optional
+
+- [templates/OPERATIONS_v1.md](https://raw.githubusercontent.com/wmacevoy/devops/main/templates/OPERATIONS_v1.md): the operating contract: availability, recovery, cost, who is told
+- [templates/INVENTORY.md](https://raw.githubusercontent.com/wmacevoy/devops/main/templates/INVENTORY.md): environments, kept state, secrets by name, identities, dated things
+- [templates/RUNBOOK.md](https://raw.githubusercontent.com/wmacevoy/devops/main/templates/RUNBOOK.md): one operation, with when it was last run
+- [templates/POSTMORTEM.md](https://raw.githubusercontent.com/wmacevoy/devops/main/templates/POSTMORTEM.md): a blameless incident review that ends in changes
+- [templates/CONTRIBUTING.md](https://raw.githubusercontent.com/wmacevoy/devops/main/templates/CONTRIBUTING.md): the repository guide for a project that runs something
