@@ -12,7 +12,8 @@ The DO1 IDs are defined in the guide at https://github.com/wmacevoy/devops/tree/
 [principle index](https://github.com/wmacevoy/devops/blob/main/README.md#principle-index) lists them all, and each has an anchor in its chapter
 (for example, `guide/07-operating.md#o8`), and a grep for `DO1/O8.` lands on it. This copy is
 from **v1.0**, which is not yet released, so its links name `main`; what changes, by ID, will be in
-the guide's [CHANGELOG](https://github.com/wmacevoy/devops/blob/main/CHANGELOG.md). The Markdown in that repository is the canonical text.
+the guide's [CHANGELOG](https://github.com/wmacevoy/devops/blob/main/CHANGELOG.md). The Markdown in that repository is the canonical text; the site at
+https://wmacevoy.github.io/devops/ renders the latest version for human readers.
 
 Drafted 2026-11-19 by Claude Fable 5.2 with Warren MacEvoy, in one session, on the pattern of the
 data-mining guide's agreement, from SE1 v1.7 and the DevOps course repository. These are rules an

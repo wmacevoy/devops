@@ -12,7 +12,7 @@ confirmed by the owner ([SE1/W12](https://github.com/wmacevoy/software-engineeri
 | `tools/check.py`, `tools/test_check.py` | the documents agree with each other and with SE1 at `SE_RELEASE`; REQ1/CHK-1, REQ1/PIN-1 | none |
 | `se`, `se.ps1`, `se.py`, `docs/SE1-AGENTS.md`, `vendor/se1/` | unedited copies from SE1 v1.7 | none |
 | `.claude/settings.json` | runs `se --post` at startup, resume, and compaction | none |
-| `_config.yml` | would render `main` with the named theme; the site is not switched on | none |
+| `_config.yml` | renders `main` with the named theme at https://wmacevoy.github.io/devops/ | none |
 
 ## One-way doors
 
@@ -32,4 +32,4 @@ confirmed by the owner ([SE1/W12](https://github.com/wmacevoy/software-engineeri
 
 ## Deferred
 
-- *Not yet:* `archive/`; a doctor; the site.
+- *Not yet:* `archive/`; a doctor.

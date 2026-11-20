@@ -79,11 +79,11 @@ the users of whatever those teams run, who meet it only when it is down.
   model in it; SHAPE-2 holds for it as for SE1; and CHK-1's "link" covers DM1 links.
 - 2026-11-19: operations is not only software: on premises it is plain engineering, and the cloud is
   engineering rented; the Gantt chart is real there (the owner's words, written as DO1/W10).
+- 2026-11-19: GitHub Pages renders the guide from `main`, as it does SE1 and DM1, at the owner's
+  word ("publish a guide as with se and dm").
 
 ## Not yet answered
 
-- Whether GitHub Pages should render this guide, as it does SE1 and DM1. `_config.yml` is here; the
-  site is not switched on.
 - Whether `DO1` is the prefix the owner wants.
 - Which SE1 principles left off the map were meant to be.
 

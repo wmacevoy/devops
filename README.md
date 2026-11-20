@@ -10,7 +10,7 @@ noun — not the code, but **the path** from a change in someone's head to a sys
 watched, and restorable — so this guide does not repeat SE1. Each principle here either **reframes**
 an SE1 principle for operations (and links to it), or is **new**: something SE1 does not say because
 a program on one machine does not need it. Every principle says which, on the line under its
-heading.
+heading. The [web guidebook](https://wmacevoy.github.io/devops/) renders these files.
 
 It is organized as **numbered principles** with versioned IDs (`DO1/F6`, `DO1/D6`, `DO1/O13`, …), in
 the same ten chapters, with the same letters, as SE1. Each states one idea and says why it is true;
