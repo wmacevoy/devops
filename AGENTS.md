@@ -143,7 +143,10 @@ SE1's *Verify* holds — run it, watch the check fail, never weaken an assertion
 - **Run the setup twice** and show that the second run changed nothing. (DO1/D4)
 - **A deploy is verified by what a user would get**: a real request through the public path,
   compared with a known answer. "The command returned" is not evidence. (DO1/P2, DO1/T7)
-- **Say which commit is running** after any deploy you report. (DO1/D13)
+- **Say which commit is running** after any deploy you report, and where a model serves, which model,
+  prompt, and dataset. A retrain or a provider's model update is a deploy: it passes the same gate,
+  with the fixture, the properties, and the shadow comparison. Report the comparison; do not pull
+  live rows to make it. (DO1/D13, DO1/T7, DM1/O6, DM1/A8)
 - **A check you add has been seen to fail**: the alert fired on an injected fault, the gate refused
   a bad build, the doctor went red on a missing tool. (DO1/T3)
 - **Name the way back** for every change: the previous artifact, the switch, or a plain statement

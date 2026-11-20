@@ -174,7 +174,8 @@ cannot decide where it is a promise to a person.
 Diagnosing an operational problem means showing the agent what the system printed, and operational
 output is full of things that were never meant to be shown: connection strings with passwords in
 them, tokens in headers, internal hostnames and addresses, customer identifiers in log lines, the
-whole environment of a process dumped by a helpful error handler.
+whole environment of a process dumped by a helpful error handler. Where the system holds data about
+people, rows of the data are the same, whatever the reason for showing them ([DM1/A8](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/10-agents.md#a8)).
 
 Pasting that into a hosted model sends it to a third party, under that service's terms, and into a
 transcript that will outlive the incident. A secret that has been pasted is leaked, by the ordinary

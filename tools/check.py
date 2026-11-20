@@ -4,7 +4,8 @@ every relative link and anchor resolves; every DO1 citation names a real princip
 defines it; every principle says, on the line under its heading, whether it is *New.* or which SE1
 principles it *Reframes*; every SE1 link names the pinned SE1 release and the chapter and anchor its ID
 implies, and a principle and anchor that exist in vendor/se1, which is the pinned release, with the copies of
-SE1's files here equal to it; copies cite no DO1 ID their labeled release lacks; a patch release changes no principle,
+SE1's files here equal to it; every DM1 link names DM_RELEASE and a principle and anchor that exist in
+vendor/dm1; copies cite no DO1 ID their labeled release lacks; a patch release changes no principle,
 AGENTS.md, or template; README's principle index and its SE1 map match the chapters exactly; chapter
 numbers agree; llms.txt links to files that exist; and CHANGELOG.md, AGENTS.md, and the templates agree
 on the release. Exits nonzero on any problem. Python 3.9 or later and git; standard library only.
@@ -31,6 +32,12 @@ SE_CHAPTER = {"P": "01-purpose", "U": "02-unknowing", "F": "03-feedback", "R": "
 HEADING = re.compile(r'### <a id="([a-z0-9]+)"></a>DO1/([A-Z][0-9]+)\. (.*)')
 BASIS = re.compile(r"\*(New|Reframes (.+))\.\*")
 SE_LINK = re.compile(r"\[SE1/([A-Z][0-9]+)\]\(([^)]+)\)")
+# The data-mining guide, cited where a model in the system changes what a principle asks. Same chapters
+# and letters as SE1, pinned the same way.
+DM_RELEASE = "v1.4"
+DM_BLOB = f"https://github.com/wmacevoy/data-mining/blob/{DM_RELEASE}/"
+DM_LINK = re.compile(r"\[DM1/([A-Z][0-9]+)\]\(([^)]+)\)")
+DM_REF = re.compile(r"https://github\.com/wmacevoy/data-mining/(?:blob|tree)/([^/)\s]+)")
 
 problems = 0
 
@@ -145,6 +152,22 @@ else:
     problem("vendored SE1   vendor/se1 has no README.md or AGENTS.md: copy SE1 there at the pinned tag")
 
 se_ids = set(re.findall(r"\[\*\*SE1/([A-Z][0-9]+)\*\*\]", se_text)) if se_text else None
+
+# DM1 IDs, read from vendor/dm1, which must be DM_RELEASE.
+dm_root = os.path.join(root, "vendor", "dm1")
+dm_ids, dm_anchors = None, {}
+if os.path.exists(os.path.join(dm_root, "README.md")) and os.path.exists(os.path.join(dm_root, "AGENTS.md")):
+    m = re.search(r"This copy is\s+from\s+\*\*(v[0-9.]+)\*\*", read(os.path.join(dm_root, "AGENTS.md")))
+    if not m or m.group(1) != DM_RELEASE:
+        problem(f"vendored DM1   vendor/dm1 is {m.group(1) if m else 'unlabeled'}, and DM_RELEASE is {DM_RELEASE}: copy it again at that tag")
+    # DM1 cites SE1 too; at another SE1 release, its citations and ours would mean different texts.
+    dm_se = os.path.join(dm_root, "docs", "SE1-AGENTS.md")
+    m = re.search(r"This copy is\s+from\s+\*\*(v[0-9.]+)\*\*", read(dm_se)) if os.path.exists(dm_se) else None
+    if not m or m.group(1) != SE_RELEASE:
+        problem(f"vendored DM1   vendor/dm1 follows SE1 {m.group(1) if m else 'unlabeled'}, and SE_RELEASE is {SE_RELEASE}: bump one or the other")
+    dm_ids = set(re.findall(r"\[\*\*DM1/([A-Z][0-9]+)\*\*\]", read(os.path.join(dm_root, "README.md"))))
+else:
+    problem("vendored DM1   vendor/dm1 has no README.md or AGENTS.md: copy DM1 there at DM_RELEASE")
 se_anchors = {}  # SE1 chapter file -> its anchors at SE_RELEASE, read once; None if unreadable
 
 
@@ -167,6 +190,23 @@ def check_se(id_, url, where):
         problem(f"unknown SE1 ID {where}: SE1/{id_}")
     elif se_ids is not None and name and not se_has_anchor(id_):
         problem(f"SE1 anchor     {where}: SE1/{id_} is in {SE_RELEASE}'s index but guide/{name}.md has no anchor for it")
+
+
+def check_dm(id_, url, where):
+    name = SE_CHAPTER.get(id_[0])
+    if not name:
+        problem(f"unknown DM1 chapter {where}: DM1/{id_}")
+        return
+    if url is not None and url != f"{DM_BLOB}guide/{name}.md#{id_.lower()}":
+        problem(f"DM1 link       {where}: DM1/{id_} should link to {DM_BLOB}guide/{name}.md#{id_.lower()}")
+    if dm_ids is not None and id_ not in dm_ids:
+        problem(f"unknown DM1 ID {where}: DM1/{id_}")
+    elif dm_ids is not None:
+        if name not in dm_anchors:
+            p = os.path.join(dm_root, "guide", f"{name}.md")
+            dm_anchors[name] = anchors_of_text(read(p)) if os.path.exists(p) else set()
+        if id_.lower() not in dm_anchors[name]:
+            problem(f"DM1 anchor     {where}: DM1/{id_} is in {DM_RELEASE}'s index but guide/{name}.md has no anchor for it")
 
 
 # Principles, their basis lines, and the index and map README must contain.
@@ -215,6 +255,11 @@ for f in files:
     text = read(f)
     for m in SE_LINK.finditer(text):
         check_se(m.group(1), m.group(2), f"{rel(f)}: {m.group(0)}")
+    for m in DM_LINK.finditer(text):
+        check_dm(m.group(1), m.group(2), f"{rel(f)}: {m.group(0)}")
+    for m in DM_REF.finditer(text):
+        if m.group(1) != DM_RELEASE:
+            problem(f"DM1 link       {rel(f)}: {m.group(0)} should name {DM_RELEASE}")
     for m in re.finditer(r"\[([^\]]+)\]\(([^)]+)\)", text):
         label, href = m.groups()
         where = f"{rel(f)}: {m.group(0)}"
@@ -249,7 +294,7 @@ for f in files:
 
 # Bare citations, the form AGENTS.md uses: "(DO1/F5, SE1/T3)". Only chapter letters count, so "(K3)"
 # and other parentheticals are left alone.
-CITE = r"(?:(?:DO|SE)[0-9]+/)?[PUFRDTOWHA][0-9]+"
+CITE = r"(?:(?:DO|SE|DM)[0-9]+/)?[PUFRDTOWHA][0-9]+"
 for f in files:
     for m in re.finditer(rf"\(({CITE}(?:,\s*{CITE})*)\)", read(f)):
         for cite in re.split(r",\s*", m.group(1)):
@@ -263,6 +308,8 @@ for f in files:
             elif version == SE:
                 if se_ids is not None and id_ not in se_ids:
                     problem(f"unknown SE1 ID {where}")
+            elif version == "DM1":
+                check_dm(id_, None, where)
             else:
                 problem(f"wrong version  {where}")
 
@@ -393,5 +440,6 @@ if "--print" in sys.argv:
 reframing = {link for links in reframes.values() for link in links}
 print(f"{len(files)} files, {len(defined_in)} principles ({len(defined_in) - len(reframing)} new), "
       f"{len(reframes)} SE1 principles reframed, SE1 IDs "
-      f"{'checked against ' + se_source if se_ids is not None else 'NOT checked (no vendor/se1)'}, {problems} problems")
+      f"{'checked against ' + se_source if se_ids is not None else 'NOT checked (no vendor/se1)'}, DM1 IDs "
+      f"{'checked against ' + DM_RELEASE + ' in vendor/dm1' if dm_ids is not None else 'NOT checked (no vendor/dm1)'}, {problems} problems")
 sys.exit(1 if problems else 0)

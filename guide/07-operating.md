@@ -15,7 +15,9 @@ the thing being engineered.
 SE1/O1 and SE1/O2: an image tag is a family, not a file; say what you are compatible with, record
 what you ran, and install with the command that refuses drift. The build is not the only thing that
 resolves differently next week. So do the base image, the CI runner, the deploy tool, the provider
-plugin, and every third-party pipeline step referred to by a tag its author can move.
+plugin, and every third-party pipeline step referred to by a tag its author can move. A hosted model
+named by an alias is one more: the provider's update is a retrain that nobody here deployed
+([DM1/A9](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/10-agents.md#a9)).
 
 The guides this one is modeled on carry the scar. Their CI asked for `ubuntu-latest`, which one
 month became a new release that the Python setup step had no 3.9 for, the oldest version they
@@ -94,7 +96,8 @@ meet the new version first.
 
 One instance, or one lot in a hundred, gets the change. A gate compares it with the old version on
 the signals users feel, for a stated number of minutes, and either widens the rollout or withdraws
-it, with nobody watching. Only then does everyone get it.
+it, with nobody watching. Only then does everyone get it. A scheduled retrain goes through the same
+gate, and the same freeze, as a commit does ([DM1/O6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o6)).
 
 Two cautions. The gate is a check, so it has been seen to refuse ([DO1/T3](06-testing.md#t3)).
 And "roll back" means *to the previous artifact*, which is still in the registry and can still read
@@ -112,7 +115,8 @@ seconds without a deploy at all.
 
 Separating them is what lets deploys be small and constant ([DO1/F6](03-feedback.md#f6))
 while releases stay a decision someone makes on purpose, at a sensible hour. It also gives incidents
-their fastest mitigation: turn it off.
+their fastest mitigation: turn it off. For a model, shipping dark is shadow mode: the new one sees
+live inputs and logs its answers while the old one still decides ([DM1/O6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o6)).
 
 The price is that every switch is state ([DO1/D1](05-design.md#d1)), and the combinations
 multiply. An old switch is a branch nobody tests. In 2012 a trading firm reused the name of a
@@ -234,7 +238,8 @@ through the same pipeline and are not.
 
 A migration that drops a column. A deletion with no backup behind it. Ten thousand emails. A firmware
 image accepted by a hundred sensors. A signing key retired while readings signed with it are still
-arriving. The pipeline shows each as a green step like any other.
+arriving. A model that steered what people did: it rolls back, and the data it shaped does not
+([DM1/O11](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o11)). The pipeline shows each as a green step like any other.
 
 Mark them. A step with no undo is labeled as such in the pipeline, needs a second person, and has a
 written plan for the case where it goes wrong, since "roll back" is not available. Wherever

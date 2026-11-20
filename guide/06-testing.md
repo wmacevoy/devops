@@ -132,7 +132,11 @@ demonstrate it first. Infrastructure described in files gets tests like any othe
 useful ones are stated from outside.
 
 - **After every deploy, a smoke test**: a real request through the public name, compared with a
-  known answer, before the deploy is called finished ([DO1/O5](07-operating.md#o5)).
+  known answer, before the deploy is called finished ([DO1/O5](07-operating.md#o5)). For a model, the
+  smoke test shows only that it answers. Before a new model or a retrain serves, it gets what a code
+  change gets: the fixture, the properties it must have, and a comparison with the current model on
+  live inputs, in shadow. Agreeing with the old model is evidence of no surprise, not of being right
+  ([DM1/O6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o6)).
 - **Statements that must stay true**: *nothing but the load balancer accepts traffic from the
   internet; no storage is public; every volume is encrypted*. Run them against the description
   before applying it, and against what is running afterward.

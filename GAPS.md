@@ -62,3 +62,17 @@ absent, and [DO1/D8](guide/05-design.md#d8) argues against reaching for it early
 [DO1/A3](guide/10-agents.md#a3), [DO1/A4](guide/10-agents.md#a4), [DO1/A9](guide/10-agents.md#a9), and [DO1/A10](guide/10-agents.md#a10) are new, and rest on no trial. SE1's agent principles
 came from trials with agents loaded with its rules. These came from reasoning about what a shell
 contains. They are the first candidates for a trial, and for being wrong.
+
+## 9. DM1 is cited in part
+
+DM1 v1.4 was read against this guide once, by one model, and a second model's review named DM1
+principles with operational content that no principle here cites yet: [DM1/U6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/02-unknowing.md#u6) (an interrupted
+retrain's checkpoint answers as confidently as a finished model: a torn deploy, [DO1/O4](guide/07-operating.md#o4)),
+[DM1/O7](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o7) (the way back needs the old model loadable and its feature columns still there, [DO1/O7](guide/07-operating.md#o7)),
+[DM1/D9](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/05-design.md#d9) (one feature definition for training and serving is build-once for feature code, [DO1/D7](guide/05-design.md#d7)),
+[DM1/O8](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o8) (a model trained on personal data is personal data; every copy is in the inventory),
+[DM1/A4](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/10-agents.md#a4) (the holdout out of reach of agents and the pipeline, [DO1/A3](guide/10-agents.md#a3)),
+[DM1/O3](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o3) (whether distribution monitors page anyone, [DO1/O3](guide/07-operating.md#o3)),
+[DM1/O11](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o11) (the decision log and the random slice are kept state, [DO1/D1](guide/05-design.md#d1)), and retraining time as part of
+recovery time ([DO1/R4](guide/04-requirements.md#r4)). The README's DM1 section is kept by hand; the checker does not
+derive it.

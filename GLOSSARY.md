@@ -11,7 +11,7 @@ factory, cache, contract, one-way door, and the rest mean the same here. One thi
 | **Cold start**         | Rebuilding the whole system from the repository and the backups into an empty account ([DO1/T11](guide/06-testing.md#t11)). |
 | **Deploy**             | Putting a new artifact into an environment. Not the same event as a *release* ([DO1/O6](guide/07-operating.md#o6)).     |
 | **Doctor**             | One command that checks a workstation or a repository, one line per check, nonzero on failure ([DO1/T2](guide/06-testing.md#t2)). |
-| **Drift**              | A difference between what the repository declares and what is running, made without the repository ([DO1/U3](guide/02-unknowing.md#u3)). |
+| **Drift**              | A difference between what the repository declares and what is running, made without the repository ([DO1/U3](guide/02-unknowing.md#u3)). Not a model's world changing under it, which DM1 also calls drift and names as three shifts ([DM1/O4](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o4)). |
 | **Environment**        | One complete copy of the system, with a name that appears in everything it contains ([DO1/T5](guide/06-testing.md#t5)). |
 | **Error budget**       | The failure an availability target allows in a period; spent by change ([DO1/R3](guide/04-requirements.md#r3)).            |
 | **Freeze**             | A stated period in which nothing is deployed ([DO1/R6](guide/04-requirements.md#r6)).                                      |

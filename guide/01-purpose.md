@@ -37,7 +37,9 @@ year's address, and a database that accepted the connection and answers nothing.
 SE1/P2 says reliable means it works amid failing parts, *and says so when it does not*. The
 operations form: every layer between the commit and the user can report success while the layer
 above it is broken. The process is up and the port is closed. The port is open and every request
-fails. Every request succeeds and the count on the sign is from Tuesday.
+fails. Every request succeeds and the count on the sign is from Tuesday. Where a model answers, there is
+one more: every request gets a fresh, confident forecast that is wrong, and the outcome that would
+say so arrives tonight, or never ([DM1/O3](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o3)).
 
 So the question is never "did the deploy succeed" but "what did a user get, just now, and how do we
 know" ([DO1/O5](07-operating.md#o5), [DO1/D10](05-design.md#d10)).

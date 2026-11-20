@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 se.py --post"
+          },
+          {
+            "type": "command",
+            "command": "python3 dm.py --training"
+          }
+        ]
+      }
+    ]
+  }
+}

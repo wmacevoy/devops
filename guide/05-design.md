@@ -23,6 +23,12 @@ Write the second pile down ([inventory template](../templates/INVENTORY.md)): wh
 lives, who owns it, how it is backed up, and what the user sees while it is being restored
 ([DO1/R4](04-requirements.md#r4)). Anything in neither pile on paper is in the second in practice.
 
+A trained model sits on the line between them. DM1 counts it as derived, rebuilt from the data
+version, the code version, the seed, and the environment ([DM1/D6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/05-design.md#d6)). Operate it as kept until
+that rebuild has been run and has agreed within a stated tolerance ([DM1/T5](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/06-testing.md#t5)), since any of the
+four may be gone, and on other hardware the numbers move even when none is ([DM1/O1](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o1)). The raw
+data it was trained from is kept by definition.
+
 > **Ask:** "If we deleted everything we can rebuild, what would be left — and is that list written
 > down?"
 
@@ -243,7 +249,9 @@ and wait to see who notices.
 SE1/D13: evidence is "signed by a key in the registry, here is the check," not a feeling. For a
 running system the first piece of evidence is identity. *What exactly is serving traffic right now?*
 should have an answer that takes one command: this commit, built by this pipeline run, as this image
-digest, deployed at this time, by this person or merge.
+digest, deployed at this time, by this person or merge. Where a model serves, add the model's version and
+the dataset it was trained on: a retrain changes what users get with no commit at all
+([DM1/O6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o6), [DM1/O7](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o7)).
 
 Carry it in three places: stamped into the artifact, reported by the running service at an endpoint,
 and written to a deploy log that nobody can edit. Then diagnosis starts from "what changed" as a

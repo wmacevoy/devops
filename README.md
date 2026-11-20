@@ -353,6 +353,24 @@ SE1 says about software applies to it.
 - [SE1/A9](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/10-agents.md#a9) → [DO1/A8](guide/10-agents.md#a8)
 - [SE1/A11](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/10-agents.md#a11) → [DO1/A11](guide/10-agents.md#a11)
 
+## Reading DM1 when the system includes a model
+
+[DM1](https://github.com/wmacevoy/data-mining/tree/v1.4), the data-mining guide, is vendored at
+`vendor/dm1` at v1.4, without its own copy of SE1. Where the system you operate trains or serves a
+model, each DM1 principle below changes what the DO1 principles named after it ask, and those
+principles say how. Most of the rest of DM1 is about whether the model's claims are true; the DM1
+principles with operational content not yet cited here are in [GAPS 9](GAPS.md#9-dm1-is-cited-in-part).
+
+- [DM1/O3](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o3) — cited in [DO1/P2](guide/01-purpose.md#p2): serving includes the model being right, and the signal for that arrives late or never
+- [DM1/O5](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o5) — cited in [DO1/R5](guide/04-requirements.md#r5): a model is an input that fails by answering plausibly; it needs a fallback that is not a model
+- [DM1/O6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o6) — cited in [DO1/D13](guide/05-design.md#d13), [DO1/T7](guide/06-testing.md#t7), [DO1/O5](guide/07-operating.md#o5), [DO1/O6](guide/07-operating.md#o6): a retrain is a deploy with no commit; it gets the fixture, the properties, and a shadow comparison, and passes the same gate; shadow mode is shipping dark
+- [DM1/A9](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/10-agents.md#a9) — cited in [DO1/O1](guide/07-operating.md#o1): a hosted model named by an alias is an unpinned tag
+- [DM1/O7](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o7) — cited in [DO1/D13](guide/05-design.md#d13): the dataset a model was trained on is part of what is running
+- [DM1/O1](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o1), [DM1/T5](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/06-testing.md#t5), [DM1/D6](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/05-design.md#d6) — cited in [DO1/D1](guide/05-design.md#d1): a model is kept state until a rebuild has been run and agreed within a tolerance
+- [DM1/O11](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o11) — cited in [DO1/O12](guide/07-operating.md#o12): the data a model shaped has no undo
+- [DM1/A8](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/10-agents.md#a8) — cited in [DO1/A9](guide/10-agents.md#a9): rows of data about people sent to an agent have left the room
+- [DM1/D2](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/05-design.md#d2), [DM1/O4](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o4) — cited in [DO1/U3](guide/02-unknowing.md#u3): a model's world changing is staleness, which DM1 names as three shifts; drift here, unqualified, is the repository and the machine disagreeing
+
 ## Twelve questions
 
 If you remember nothing else, each of these can be asked out loud, and each has an answer.
@@ -390,6 +408,10 @@ SE1's `main` says now. Bumping it is that one edit, a rewrite of the links, a fr
 `vendor/se1`, a walk through SE1's CHANGELOG for every ID this guide reframes, and a CHANGELOG entry
 here saying what was reframed, declined, or confirmed, by SE1 ID.
 
+**DM1 is pinned the same way**, by `DM_RELEASE` in `tools/check.py`. Bumping it is that edit, a rewrite
+of the DM1 links, a fresh copy into `vendor/dm1` without its own `vendor/se1` (which must be the SE1
+release this guide is pinned to), and a walk through DM1's CHANGELOG for every DM1 ID cited here.
+
 ## Why to trust this, and why to doubt it
 
 Who made it, when, and what would show it wrong, as [SE1/U9](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/02-unknowing.md#u9) asks of any rule.
@@ -400,7 +422,8 @@ Who made it, when, and what would show it wrong, as [SE1/U9](https://github.com/
   README, working agreement, checker, and parts of two chapters, and the DevOps course repository,
   then wrote every principle here. The author had not read the result when it was first published. It is `v1.0 —
   unreleased` until he has, and signs it.
-- **What it rests on.** SE1's principles, by reference. The shape of DM1. The course repository's
+- **What it rests on.** SE1's principles, by reference. The shape of DM1, and on a model in
+  production, DM1 v1.4's principles, cited where they change what a principle here asks. The course repository's
   examples. And the agent's recollection of the operations literature listed in
   [READING.md](READING.md), **none of which was opened and checked during the drafting**: the public
   incidents the chapters mention are described from memory, and each should be checked against its

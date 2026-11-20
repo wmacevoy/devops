@@ -73,6 +73,10 @@ the users of whatever those teams run, who meet it only when it is down.
   and one written unseen would be a check never seen red.
 - 2026-11-19 *(inferred)*: all of SE1 is vendored at `vendor/se1`, as DM1 does, and its copy of the
   agreement lives at `docs/SE1-AGENTS.md`.
+- 2026-11-19: DM1 v1.4 is vendored at `vendor/dm1`, at the owner's request: DevOps often includes
+  data mining.
+- 2026-11-19 *(inferred)*: DM1 is cited where it changes what a principle asks of a system with a
+  model in it; SHAPE-2 holds for it as for SE1; and CHK-1's "link" covers DM1 links.
 
 ## Not yet answered
 

@@ -24,7 +24,9 @@ The new principles: [DO1/P6](guide/01-purpose.md#p6), [DO1/U3](guide/02-unknowin
 
 With it: AGENTS.md, ADOPT.md, CHECKLISTS, GLOSSARY, READING, GAPS, five templates (OPERATIONS_v1,
 INVENTORY, RUNBOOK, POSTMORTEM, CONTRIBUTING), and `tools/check.py` with its tests, ported from
-DM1's. SE1 v1.7 is vendored whole at `vendor/se1`.
+DM1's. SE1 v1.7 is vendored whole at `vendor/se1`, and DM1 v1.4 at `vendor/dm1`, cited by
+[DO1/P2](guide/01-purpose.md#p2), [DO1/U3](guide/02-unknowing.md#u3), [DO1/R5](guide/04-requirements.md#r5), [DO1/D1](guide/05-design.md#d1), [DO1/D13](guide/05-design.md#d13), [DO1/T7](guide/06-testing.md#t7), [DO1/O6](guide/07-operating.md#o6), [DO1/O12](guide/07-operating.md#o12), and [DO1/A9](guide/10-agents.md#a9) where a model
+in the system changes what they ask.
 
 Not reviewed: every reframing was written from SE1's quick reference, one line per principle, and
 not from SE1's chapters. SE1 principles this guide leaves off its map were not each considered and

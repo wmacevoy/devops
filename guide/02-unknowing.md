@@ -62,6 +62,10 @@ Drift is found only by comparing what is declared with what is running, by machi
 ([DO1/D6](05-design.md#d6)), and it is prevented by making the by-hand change
 harder than the right one ([DO1/D14](05-design.md#d14)).
 
+Data miners say a model has drifted when the world changed under it ([DM1/D2](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/05-design.md#d2)). That is a cache
+gone stale, and DM1 names its three kinds as shifts ([DM1/O4](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o4)). Where this guide says *drift*
+without a qualifier, it means the repository and the machine disagreeing.
+
 > **Ask:** "When did something last compare what is running with what the repository says?"
 
 ### <a id="u4"></a>DO1/U4. Every environment is a chosen falsehood about production; say where it lies

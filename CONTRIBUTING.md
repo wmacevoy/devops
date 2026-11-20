@@ -27,7 +27,8 @@ this file is about the guide itself.
 
 - The root `AGENTS.md` is this guide's published agreement. SE1's is the unedited copy at
   `docs/SE1-AGENTS.md`, and `vendor/se1/`, `se`, `se.ps1`, and `se.py` are unedited copies too;
-  change them only by re-copying from a release.
+  change them only by re-copying from a release. `vendor/dm1/` is DM1 v1.4, unedited, except that its
+  own `vendor/se1/` is left out: it was the same SE1 v1.7 as ours.
 - Bumping SE1 follows *Changing this guide* in the README.
 - Python 3.9 or later and git are the only dependencies, as in SE1 and DM1 *(inferred from those
   guides; not yet confirmed for this one)*.

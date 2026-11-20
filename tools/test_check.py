@@ -157,6 +157,26 @@ class TestChecker(Repo):
         self.plant("AGENTS.md", replace_once("(SE1/W12)", "(SE1/W99)"))
         self.red("unknown SE1 ID AGENTS.md")
 
+    def test_dm1_link_at_another_release(self):
+        # REQ1/CHK-1
+        self.plant("guide/01-purpose.md", sub_once(r"(\[DM1/[A-Z]\d+\]\([^)]*blob/)v\d+\.\d+/", r"\1v1.0/"))
+        self.red("DM1 link       guide/01-purpose.md")
+
+    def test_unknown_dm1_id(self):
+        # REQ1/CHK-1
+        self.plant("guide/01-purpose.md", sub_once(r"\[DM1/([A-Z])\d+\]\(([^)#]*)#[a-z]\d+\)", r"[DM1/\g<1>99](\2#o99)"))
+        self.red("unknown DM1 ID guide/01-purpose.md")
+
+    def test_unknown_dm1_id_in_a_bare_citation(self):
+        # REQ1/CHK-1
+        self.plant("AGENTS.md", replace_once("(DO1/D13,", "(DM1/O99, DO1/D13,"))
+        self.red("unknown DM1 ID AGENTS.md")
+
+    def test_any_dm1_url_at_another_release(self):
+        # REQ1/CHK-1: a link labeled with words, not an ID, is pinned too.
+        self.plant("README.md", replace_once("data-mining/tree/v1.4", "data-mining/tree/v1.3"))
+        self.red("DM1 link       README.md")
+
     def test_readme_index_out_of_date(self):
         self.plant("README.md", replace_once("[**DO1/U10**](guide/02-unknowing.md#u10) Everything", "[**DO1/U10**](guide/02-unknowing.md#u10) Anything"))
         self.red("README index out of date")
@@ -256,6 +276,34 @@ class TestVendoredSe1(Repo):
     def test_an_edited_se_py_is_a_problem(self):
         self.plant("se.py", replace_once("import ", "import  "))
         self.red("vendored SE1   se.py differs")
+
+
+class TestVendoredDm1(Repo):
+    def test_no_vendored_dm1_is_a_problem(self):
+        readme = os.path.join(self.repo, "vendor", "dm1", "README.md")
+        os.rename(readme, readme + ".gone")
+        try:
+            r = self.check()
+        finally:
+            os.rename(readme + ".gone", readme)
+        self.assertEqual(r.returncode, 1)
+        self.assertIn("vendored DM1   vendor/dm1 has no README.md", r.stdout)
+        self.assertIn("NOT checked (no vendor/dm1)", r.stdout)
+
+    def test_vendored_at_another_release_is_a_problem(self):
+        # REQ1/CHK-1: passing against another DM1 says nothing about the one cited.
+        self.plant("vendor/dm1/AGENTS.md", sub_once(r"This copy is\nfrom \*\*v[0-9.]+\*\*", "This copy is\nfrom **v1.0**"))
+        self.red("vendored DM1   vendor/dm1 is v1.0")
+
+    def test_vendored_on_another_se1_is_a_problem(self):
+        # REQ1/PIN-1
+        self.plant("vendor/dm1/docs/SE1-AGENTS.md", sub_once(r"This copy is from \*\*v[0-9.]+\*\*", "This copy is from **v1.0**"))
+        self.red("vendored DM1   vendor/dm1 follows SE1 v1.0")
+
+    def test_dm1_id_with_no_anchor_is_a_problem(self):
+        # REQ1/CHK-1
+        self.plant("vendor/dm1/guide/07-operating.md", replace_once('<a id="o3"></a>', ""))
+        self.red("DM1 anchor     ")
 
 
 class TestPatchRelease(Repo):

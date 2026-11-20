@@ -99,7 +99,9 @@ identity provider that logs your own operators in.
 Ask the four questions of each. The registry is **absent**: can you deploy? Can you roll back, or
 did that need a pull too? The package mirror is **late**: does the build hang or fail? The base
 image tag is **wrong**, pointing at a new build since yesterday ([DO1/O1](07-operating.md#o1)).
-The provider's status page is **lying**, green while your region fails.
+The provider's status page is **lying**, green while your region fails. A model the system calls is
+one of these inputs, and it fails by answering plausibly: give it a fallback that is not a model, decided
+with the client and written in the requirements, and test the switch ([DM1/O5](https://github.com/wmacevoy/data-mining/blob/v1.4/guide/07-operating.md#o5)).
 
 Unstated, the answer is whatever the tool does by default, discovered during an incident that the
 same outage caused.
