@@ -183,6 +183,31 @@ watched ([DO1/D12](05-design.md#d12)).
 
 > **Ask:** "Is this a description of what is running, or of what we wish were?"
 
+### <a id="w10"></a>DO1/W10. Operations is not only software: on premises it is plain engineering, in the cloud it is engineering you rent, and the Gantt chart is real
+
+*Reframes [SE1/W5](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w5) and [SE1/W2](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w2).*
+
+SE1/W5: "can't start B until A is done" is almost never a fact about the world, because software has
+no mass; every arrow in a physical schedule is a fact about mass. Operations has mass. On premises it
+is plain engineering: a server arrives in weeks, the power company installs the circuit on its own
+schedule, the room is cooled before the rack is filled, and nothing written today brings any of them
+sooner. In the running example the signs hang on poles the city puts up, and a hundred sensors are
+mounted by hand before the first game. No interface and no mock dissolves those arrows. Draw them,
+find the critical path, and order the longest first.
+
+In the cloud the mass is rented, not gone. It comes back as lead times you do not control: a quota
+increase the provider grants in days, a machine type not yet offered in your region, a new account
+waiting for approval, a domain transfer, a certificate authority checking who you are
+([DO1/O11](07-operating.md#o11)). Each is an arrow on the same chart.
+
+Where an arrow is a fact about mass, SE1/W2 holds at small scale: the test is slow and dear, since a
+wrong order comes back in weeks, so check everything you can before it — space, power, weight, ports,
+part numbers — and read the order back to whoever will install it. Where an arrow is not, flatten it
+as SE1/W5 says. Most arrows in the software half still dissolve.
+
+> **Ask:** "Which arrows on this schedule are facts about mass — and are the longest of them ordered
+> first?"
+
 ---
 
 Next: [9. People](09-people.md) — who is paged, who is told, and whose laptop it runs on.

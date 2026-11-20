@@ -12,9 +12,9 @@ name the SE1 release this guide was written against, which each release below st
 
 ## v1.0 — unreleased
 
-· 100 principles
+· 101 principles
 
-A first draft: 84 principles that reframe SE1 principles for operations, and 16 new ones that SE1
+A first draft: 85 principles that reframe SE1 principles for operations, and 16 new ones that SE1
 has no counterpart for. Written on 2026-11-19 by Claude Fable 5.2 with Warren MacEvoy, in one
 session, against **SE1 v1.7**, on the pattern of the data-mining guide (DM1 v1.4). It stays
 unreleased until the author has read it and signs it ([SE1/U9](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/02-unknowing.md#u9)).

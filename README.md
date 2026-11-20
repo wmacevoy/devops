@@ -235,6 +235,7 @@ confused with these.)
 - [**DO1/W7**](guide/08-work.md#w7) An incident review that changes nothing will be written again
 - [**DO1/W8**](guide/08-work.md#w8) Do it by hand, write it down, then script it — in that order
 - [**DO1/W9**](guide/08-work.md#w9) To adopt this on a system that is already running, write down what is there before what should be
+- [**DO1/W10**](guide/08-work.md#w10) Operations is not only software: on premises it is plain engineering, in the cloud it is engineering you rent, and the Gantt chart is real
 
 **[9. People](guide/09-people.md)**
 
@@ -266,7 +267,8 @@ confused with these.)
 
 Each SE1 principle below is reframed for operations by the DO1 principles it points to. **SE1
 principles not listed apply to operational work unchanged** — a pipeline is software, and everything
-SE1 says about software applies to it.
+SE1 says about software applies to it. What runs it is not only software: hardware, power, and
+lead times are plain engineering, rented or owned ([DO1/W10](guide/08-work.md#w10)).
 
 - [SE1/P1](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/01-purpose.md#p1) → [DO1/P1](guide/01-purpose.md#p1)
 - [SE1/P2](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/01-purpose.md#p2) → [DO1/P2](guide/01-purpose.md#p2)
@@ -329,7 +331,9 @@ SE1 says about software applies to it.
 - [SE1/O10](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/07-operating.md#o10) → [DO1/O11](guide/07-operating.md#o11)
 - [SE1/O11](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/07-operating.md#o11) → [DO1/O12](guide/07-operating.md#o12)
 - [SE1/W1](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w1) → [DO1/W1](guide/08-work.md#w1)
+- [SE1/W2](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w2) → [DO1/W10](guide/08-work.md#w10)
 - [SE1/W4](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w4) → [DO1/W2](guide/08-work.md#w2)
+- [SE1/W5](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w5) → [DO1/W10](guide/08-work.md#w10)
 - [SE1/W6](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w6) → [DO1/W3](guide/08-work.md#w3)
 - [SE1/W7](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w7) → [DO1/W4](guide/08-work.md#w4)
 - [SE1/W10](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/08-work.md#w10) → [DO1/W5](guide/08-work.md#w5)

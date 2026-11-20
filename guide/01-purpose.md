@@ -13,7 +13,8 @@ changes.
 Software engineering asks *does the thing work*. Operations asks *is it running, and can we change it
 without finding out the hard way*. It is mostly the same discipline pointed at a different noun: not
 the code, but **the path** from a change in someone's head to a system that is running, watched, and
-restorable.
+restorable. Mostly: the path ends in machines, power, and lead times, which are plain engineering
+whether you own them or rent them ([DO1/W10](08-work.md#w10)).
 
 The four constraints of SE1/P1 still trade against each other: reliability, time, resources, and
 discomfort. SE1 says scope is the fifth, and usually the honest one to move. Here the honest one is
