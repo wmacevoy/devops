@@ -147,7 +147,7 @@ confused with these.)
 - [**DO1/U2**](guide/02-unknowing.md#u2) Production says "fine" by default: silence is not health
 - [**DO1/U3**](guide/02-unknowing.md#u3) Drift is the canonical K3: the repository says one thing and the machine runs another
 - [**DO1/U4**](guide/02-unknowing.md#u4) Every environment is a chosen falsehood about production; say where it lies
-- [**DO1/U5**](guide/02-unknowing.md#u5) What only the last operator knows is K3 for them and K2 for whoever is paged next
+- [**DO1/U5**](guide/02-unknowing.md#u5) What only the last operator knows is K0 for them and K2 for whoever is paged next
 - [**DO1/U6**](guide/02-unknowing.md#u6) A status with no age is a K3 factory: last backup, last restore, last deploy, last rotation
 - [**DO1/U7**](guide/02-unknowing.md#u7) Look at production when nothing is wrong
 - [**DO1/U8**](guide/02-unknowing.md#u8) A threshold, a timeout, and a limit are rules: say who set each, when, and what would show it wrong

@@ -79,11 +79,13 @@ simulated lots will never show what a hundred real ones do to the connection poo
 
 > **Ask:** "What can break in production that this environment is unable to show us?"
 
-### <a id="u5"></a>DO1/U5. What only the last operator knows is K3 for them and K2 for whoever is paged next
+### <a id="u5"></a>DO1/U5. What only the last operator knows is K0 for them and K2 for whoever is paged next
 
 *Reframes [SE1/U6](https://github.com/wmacevoy/software-engineering/blob/v1.7/guide/02-unknowing.md#u6).*
 
-SE1/U6: a constraint in one head is K3 for its holder and K2 for everyone else. Operations
+SE1/U6: a constraint in one head is K3 for its holder, who thinks everyone knows, and K2 for
+everyone else. In operations the thing itself is K0 for the one who holds it: they ran the deploy
+last week and it worked. What is K3 is their belief that anyone else could. Operations
 concentrates this more than code does, because operating happens outside the repository: in a
 console, in a terminal on one laptop, in the memory of what worked last time.
 
